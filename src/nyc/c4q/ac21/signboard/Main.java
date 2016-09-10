@@ -10,6 +10,7 @@ public class Main {
      * @param numCycles
      *   The number of cycles to draw for.
      */
+    /*
     public static void ribbonScene(SignBoard board, int numCycles) {
         int width = board.getWidth();
         int height = board.getHeight();
@@ -22,21 +23,22 @@ public class Main {
                     y = 2 * height - y - 2;
                 if (0 < x) {
                     frame.setYellow();
-                    frame.write(x, y, "*");
+                    frame.write(x, y, "x");
                 }
                 if (0 < x + 1 && x + 1 < width) {
                     frame.setGreen();
-                    frame.write(x + 1, y, "*");
+                    frame.write(x + 1, y, "x");
                 }
                 if (x + 2 < width) {
                     frame.setRed();
-                    frame.write(x + 2, y, "*");
+                    frame.write(x + 2, y, "x");
                 }
             }
 
             frame.finish(0.02);
         }
     }
+    */
 
     /**
      * Draws a scene with text scrolling across the screen..
@@ -45,6 +47,7 @@ public class Main {
      * @param text
      *   The text to scroll.
      */
+    /*
     public static void scrollTextScene(SignBoard board, String text) {
         int width = board.getWidth();
         int y = board.getHeight() / 2;
@@ -67,6 +70,7 @@ public class Main {
             frame.finish(0.02);
         }
     }
+    */
 
     /**
      * Draws a scene which flashes the words "FRESH" and "HOT".
@@ -75,6 +79,7 @@ public class Main {
      * @param cycles
      *   The number of cycles to draw for.
      */
+    /*
     public static void flashFreshHotScene(SignBoard board, int cycles) {
         Random random = new Random();
         int width = board.getWidth();
@@ -113,6 +118,89 @@ public class Main {
 
             frame.finish(0.25);
         }
+
+    }
+    */
+
+    public static void makeSomeNoise(SignBoard board, int cycles) {
+        Random random = new Random();
+        int width = board.getWidth();
+        int leftPosition = width / 2 - 17;
+        //int rightPosition = 3 * width / 4 - 7;
+        int y = board.getHeight() / 2;
+
+        for (int i = 0; i < cycles * 2; i++) {
+            SignBoard.Frame frame = board.newFrame();
+
+            // Choose a color at random.
+
+            // Write a word.
+            if (i % 3 == 0) {
+                for (int j=0; j < 10; j++) {
+                    int xposition = random.nextInt(3);
+
+                    SignBoard.Frame frame1 = board.newFrame();
+                    frame1.write(leftPosition - xposition, y - 2, "###     ###    ###    ##   ## #####  ");
+                    frame1.write(leftPosition - xposition, y - 1, "## ## ## ##   ## ##   ## ##   ###    ");
+                    frame1.write(leftPosition - xposition, y    , "##  ##   ##  ## # ##  ### ##  ##     ");
+                    frame1.write(leftPosition - xposition, y + 1, "##       ## ##     ## ##   ## ###### ");
+                    frame1.finish(0.1);
+                }
+                SignBoard.Frame frame1 = board.newFrame();
+                frame1.finish(0.5);
+            }
+            else if (i % 3 == 1) {
+                for (int j=0; j < 10; j++) {
+                    int xposition = random.nextInt(5);
+
+                    SignBoard.Frame frame1 = board.newFrame();
+                    frame.write(leftPosition - 3 - xposition, y - 3, " ######    #####    ###       ##  ######  ");
+                    frame.write(leftPosition - 3 - xposition, y - 2, "##       ##     ##  ## ##  ## ##  ##      ");
+                    frame.write(leftPosition - 3 - xposition, y - 1, " #####   ##     ##  ##   ##   ##  #####   ");
+                    frame.write(leftPosition - 3 - xposition, y,     "     ##  ##     ##  ##        ##  ##      ");
+                    frame.write(leftPosition - 3 - xposition, y + 1, "######     #####    ##        ##  ####### ");
+                    frame1.finish(0.1);
+                }
+                SignBoard.Frame frame1 = board.newFrame();
+                frame1.finish(0.5);
+            } else {
+                for (int j=0; j < 15; j++) {
+                    int xposition = random.nextInt(7);
+
+                    SignBoard.Frame frame1 = board.newFrame();
+
+                    int color = random.nextInt(7);
+                    if (color == 0)
+                        frame.setGreen();
+                    else if (color == 1)
+                        frame.setRed();
+                    else if (color == 2)
+                        frame.setWhite();
+                    else if (color == 3)
+                        frame.setYellow();
+                    else if (color == 4)
+                        frame.setBlue();
+                    else if (color == 5)
+                        frame.setMagenta();
+                    else if (color == 6)
+                        frame.setCyan();
+
+                    frame.write(leftPosition - 15 - xposition, y - 4, "#####     ###      #######     #########    #########    #########  ");
+                    frame.write(leftPosition - 15 - xposition, y - 3, "### ##    ###    ###     ###      ###      ###     ###   ###    ##  ");
+                    frame.write(leftPosition - 15 - xposition, y - 2, "###  ##   ###   ###       ###     ###      ###           ###        ");
+                    frame.write(leftPosition - 15 - xposition, y - 1, "###   ##  ###   ###       ###     ###       ########     ######     ");
+                    frame.write(leftPosition - 15 - xposition, y,     "###    ## ###   ###       ###     ###              ###   ###        ");
+                    frame.write(leftPosition - 15 - xposition, y + 1, "###     #####    ###     ###      ###      ###     ###   ###    ### ");
+                    frame.write(leftPosition - 15 - xposition, y + 2, "###      ####      #######     #########    #########    ########## ");
+                    frame1.finish(0.1);
+                }
+                SignBoard.Frame frame1 = board.newFrame();
+                frame1.finish(0.5);
+            }
+
+            frame.finish(0.10);
+        }
+
     }
 
     public static void main(String[] args) {
@@ -120,10 +208,7 @@ public class Main {
 
         // Run the sign board forever.
         while (true) {
-            ribbonScene(signBoard, 48);
-            scrollTextScene(signBoard, "###  F A L A F E L  ###");
-            ribbonScene(signBoard, 48);
-            flashFreshHotScene(signBoard, 8);
+            makeSomeNoise(signBoard, 8);
         }
     }
 }
