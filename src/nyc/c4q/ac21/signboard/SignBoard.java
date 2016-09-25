@@ -118,12 +118,24 @@ public class SignBoard {
             terminal.setTextColor(AnsiTerminal.Color.RED);
         }
 
+        public void setBlue() {
+            terminal.setTextColor(AnsiTerminal.Color.BLUE);
+        }
+
+        public void setMagenta() {
+            terminal.setTextColor(AnsiTerminal.Color.MAGENTA);
+        }
+
+        public void setCyan() {
+            terminal.setTextColor(AnsiTerminal.Color.CYAN);
+        }
+
         public void write(int x, int y, String text) {
             if (finished)
                 throw new RuntimeException("frame is finished");
 
             if (!(x >= 0 && x + text.length() <= numCols))
-                throw new IllegalArgumentException("x = " + x);
+//                throw new IllegalArgumentException("x = " + x);
             if (!(y >= 0 && y < height))
                 throw new IllegalArgumentException("y = " + y);
 
