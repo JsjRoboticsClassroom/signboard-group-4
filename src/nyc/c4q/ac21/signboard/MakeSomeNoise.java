@@ -26,7 +26,7 @@ public class MakeSomeNoise {
                     SignBoard.Frame frame1 = board.newFrame();
                     frame1.write(leftPosition - xposition, y - 2, "###     ###    ###    ##   ## #####  ");
                     frame1.write(leftPosition - xposition, y - 1, "## ## ## ##   ## ##   ## ##   ###    ");
-                    frame1.write(leftPosition - xposition, y, "##  ##   ##  ## # ##  ### ##  ##     ");
+                    frame1.write(leftPosition - xposition, y,     "##  ##   ##  ## # ##  ### ##  ##     ");
                     frame1.write(leftPosition - xposition, y + 1, "##       ## ##     ## ##   ## ###### ");
                     frame1.finish(0.1);
                 }
@@ -40,7 +40,7 @@ public class MakeSomeNoise {
                     frame.write(leftPosition - 3 - xposition, y - 3, " ######    #####    ###       ##  ######  ");
                     frame.write(leftPosition - 3 - xposition, y - 2, "##       ##     ##  ## ##  ## ##  ##      ");
                     frame.write(leftPosition - 3 - xposition, y - 1, " #####   ##     ##  ##   ##   ##  #####   ");
-                    frame.write(leftPosition - 3 - xposition, y, "     ##  ##     ##  ##        ##  ##      ");
+                    frame.write(leftPosition - 3 - xposition, y, "         ##   ##   ##   ##   ##   ##  ##    ");
                     frame.write(leftPosition - 3 - xposition, y + 1, "######     #####    ##        ##  ####### ");
                     frame1.finish(0.1);
                 }
@@ -72,7 +72,7 @@ public class MakeSomeNoise {
                     frame.write(leftPosition - 15 - xposition, y - 3, "### ##    ###    ###     ###      ###      ###     ###   ###    ##  ");
                     frame.write(leftPosition - 15 - xposition, y - 2, "###  ##   ###   ###       ###     ###      ###           ###        ");
                     frame.write(leftPosition - 15 - xposition, y - 1, "###   ##  ###   ###       ###     ###       ########     ######     ");
-                    frame.write(leftPosition - 15 - xposition, y, "###    ## ###   ###       ###     ###              ###   ###        ");
+                    frame.write(leftPosition - 15 - xposition, y,     "###    ## ###   ###       ###     ###              ###   ###        ");
                     frame.write(leftPosition - 15 - xposition, y + 1, "###     #####    ###     ###      ###      ###     ###   ###    ### ");
                     frame.write(leftPosition - 15 - xposition, y + 2, "###      ####      #######     #########    #########    ########## ");
                     frame1.finish(0.2);
