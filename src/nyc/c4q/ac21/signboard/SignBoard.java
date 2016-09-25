@@ -118,6 +118,18 @@ public class SignBoard {
             terminal.setTextColor(AnsiTerminal.Color.RED);
         }
 
+        public void setBlue() {
+            terminal.setTextColor(AnsiTerminal.Color.BLUE);
+        }
+
+        public void setMagenta() {
+            terminal.setTextColor(AnsiTerminal.Color.MAGENTA);
+        }
+
+        public void setCyan() {
+            terminal.setTextColor(AnsiTerminal.Color.CYAN);
+        }
+
         public void write(int x, int y, String text) {
             if (finished)
                 throw new RuntimeException("frame is finished");
